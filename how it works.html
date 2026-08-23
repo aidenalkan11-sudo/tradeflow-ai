@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How It Works — Lumora Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fffaf6;
+      --cream-dark: #fff2df;
+      --orange: #f37922;
+      --orange-light: #ff8d32;
+      --brown: #836247;
+      --charcoal: #545454;
+      --text: #292625;
+      --muted: #766d66;
+      --line: #eadccf;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .navbar {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: Sniglet, cursive;
+      font-size: 27px;
+      color: var(--charcoal);
+    }
+
+    .brand-name span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: #6b625c;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--orange);
+    }
+
+    .nav-links a.active {
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 21px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(243, 121, 34, .18);
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 92px 0 78px;
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 17px 0 24px;
+      font-family: Cause, sans-serif;
+      font-size: clamp(52px, 7vw, 82px);
+      line-height: .97;
+      letter-spacing: -.025em;
+      color: var(--charcoal);
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .process {
+      border-top: 1px solid var(--line);
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 15px;
+      font-family: Cause, sans-serif;
+      color: var(--charcoal);
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 35px;
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .process-step:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step-number {
+      font-family: Cause, sans-serif;
+      color: var(--orange);
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    .step-content h3 {
+      margin: 0 0 12px;
+      font-family: Cause, sans-serif;
+      color: var(--charcoal);
+      font-size: 34px;
+    }
+
+    .step-content > p {
+      max-width: 720px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .step-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .detail {
+      padding: 18px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+
+    .detail strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--charcoal);
+      font-size: 14px;
+    }
+
+    .detail span {
+      color: #877d75;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .automations {
+      padding: 90px 0;
+      background: var(--cream-dark);
+    }
+
+    .automation-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
+    }
+
+    .automation-card {
+      grid-column: span 2;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+    }
+
+    .automation-card:nth-child(4) {
+      grid-column: 1 / span 3;
+    }
+
+    .automation-card:nth-child(5) {
+      grid-column: 4 / span 3;
+    }
+
+    .automation-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #fff0df;
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .automation-card h3 {
+      margin: 20px 0 9px;
+      font-family: Cause, sans-serif;
+      color: var(--charcoal);
+      font-size: 28px;
+    }
+
+    .automation-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .expectations {
+      padding: 90px 0;
+    }
+
+    .expectation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .expectation {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+    }
+
+    .expectation h3 {
+      margin: 0 0 10px;
+      font-family: Cause, sans-serif;
+      color: var(--charcoal);
+      font-size: 26px;
+    }
+
+    .expectation p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cta {
+      margin: 20px 0 80px;
+      padding: 48px;
+      border-radius: 28px;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      max-width: 650px;
+      color: white;
+      font-family: Cause, sans-serif;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #ddd6d0;
+    }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      color: #887e76;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .process,
+      .automations,
+      .expectations {
+        padding: 65px 0;
+      }
+
+      .process-step {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .step-details,
+      .automation-grid,
+      .expectation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .automation-card,
+      .automation-card:nth-child(4),
+      .automation-card:nth-child(5) {
+        grid-column: auto;
+      }
+
+      .cta {
+        display: block;
+        padding: 32px 26px;
+      }
+
+      .cta .button {
+        margin-top: 22px;
+      }
+
+      footer {
+        display: block;
+      }
+
+      footer div + div {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="container navbar">
+
+  <a class="brand" href="/">
+    <img src="/lumora-icon.png" alt="Lumora Solutions">
+
+    <div class="brand-name">
+      Lumora<span> Solutions</span>
+    </div>
+  </a>
+
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/how-it-works.html" class="active">How It Works</a>
+    <a href="/results.html">Results</a>
+  </nav>
+
+  <a class="button" href="https://calendly.com/lumorasolutions/audit">
+    Book a free audit
+  </a>
+
+</header>
+
+<main>
+
+<section class="container hero">
+
+  <div class="eyebrow">How it works</div>
+
+  <h1>
+    We don't automate
+    for the sake of it.
+  </h1>
+
+  <p>
+    Every automation starts with a business problem. We find where
+    your team is losing time or opportunities, design a system around
+    it, and put it into practice without adding unnecessary complexity.
+  </p>
+
+</section>
+
+<section class="process">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>The Lumora process.</h2>
+      <p>
+        A straightforward process designed to make automation useful,
+        measurable and easy for your team to work with.
+      </p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">01</div>
+
+      <div class="step-content">
+        <h3>Discover</h3>
+
+        <p>
+          We start by understanding how your business currently handles
+          enquiries, customers, bookings and repetitive administration.
+          The goal is to find the highest-value opportunities for automation.
+        </p>
+
+        <div class="step-details">
+
+          <div class="detail">
+            <strong>Business audit</strong>
+            <span>Review your current workflow and identify bottlenecks.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Opportunity mapping</strong>
+            <span>Find repetitive tasks that can be improved.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Prioritisation</strong>
+            <span>Focus on changes with the clearest potential impact.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">02</div>
+
+      <div class="step-content">
+        <h3>Design</h3>
+
+        <p>
+          Once we know what needs improving, we map out exactly how the
+          new workflow should operate. Every step has a purpose, from the
+          initial enquiry through to the final hand-off.
+        </p>
+
+        <div class="step-details">
+
+          <div class="detail">
+            <strong>Workflow mapping</strong>
+            <span>Plan every trigger, action and hand-off.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Tool selection</strong>
+            <span>Choose practical tools that fit your existing setup.</span>
+          </div>
+
+          <div class="detail">
+            <strong>System architecture</strong>
+            <span>Build a reliable process instead of isolated automations.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">03</div>
+
+      <div class="step-content">
+        <h3>Build &amp; test</h3>
+
+        <p>
+          We build the automation and test it against real-world scenarios.
+          This includes checking that information moves correctly, messages
+          trigger at the right time and exceptions are handled properly.
+        </p>
+
+        <div class="step-details">
+
+          <div class="detail">
+            <strong>Implementation</strong>
+            <span>Connect the required tools and workflows.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Testing</strong>
+            <span>Run multiple scenarios before anything goes live.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Refinement</strong>
+            <span>Fix friction points and improve the workflow.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">04</div>
+
+      <div class="step-content">
+        <h3>Launch &amp; optimise</h3>
+
+        <p>
+          After testing, the system goes live. We monitor how the workflow
+          performs and make adjustments where necessary so it continues
+          working as your business changes.
+        </p>
+
+        <div class="step-details">
+
+          <div class="detail">
+            <strong>Launch</strong>
+            <span>Put the finished workflow into production.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Monitor</strong>
+            <span>Keep an eye on performance and potential issues.</span>
+          </div>
+
+          <div class="detail">
+            <strong>Improve</strong>
+            <span>Refine the system as new opportunities appear.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="automations">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <h2>What can we automate?</h2>
+
+      <p>
+        These are examples of common workflows. The exact system is
+        tailored to the way your business operates.
+      </p>
+
+    </div>
+
+    <div class="automation-grid">
+
+      <div class="automation-card">
+        <div class="automation-icon">01</div>
+
+        <h3>Lead capture</h3>
+
+        <p>
+          Automatically collect and organise enquiries from your website,
+          forms and other channels so opportunities don't get lost.
+        </p>
+      </div>
+
+      <div class="automation-card">
+        <div class="automation-icon">02</div>
+
+        <h3>Lead follow-up</h3>
+
+        <p>
+          Trigger timely follow-ups when a potential customer submits an
+          enquiry, reducing the amount of manual chasing required.
+        </p>
+      </div>
+
+      <div class="automation-card">
+        <div class="automation-icon">03</div>
+
+        <h3>Appointment booking</h3>
+
+        <p>
+          Move qualified prospects toward a booking automatically with
+          scheduling links, reminders and organised information.
+        </p>
+      </div>
+
+      <div class="automation-card">
+        <div class="automation-icon">04</div>
+
+        <h3>Customer communication</h3>
+
+        <p>
+          Automate routine messages and notifications while keeping
+          important conversations in the hands of your team.
+        </p>
+      </div>
+
+      <div class="automation-card">
+        <div class="automation-icon">05</div>
+
+        <h3>Custom-built automations</h3>
+
+        <p>
+          If your workflow doesn't fit a standard solution, we can design
+          a custom automation around your exact processes, tools and
+          requirements.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="expectations">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Built to be practical.</h2>
+    </div>
+
+    <div class="expectation-grid">
+
+      <div class="expectation">
+        <h3>Simple for your team</h3>
+        <p>
+          Your staff shouldn't need to become automation experts
+          to use the system.
+        </p>
+      </div>
+
+      <div class="expectation">
+        <h3>Designed around you</h3>
+        <p>
+          We adapt the workflow to your existing processes rather
+          than forcing your business into a template.
+        </p>
+      </div>
+
+      <div class="expectation">
+        <h3>Focused on outcomes</h3>
+        <p>
+          The objective is less repetitive work and better business
+          processes—not simply having more software.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container">
+
+  <div class="cta">
+
+    <div>
+      <h2>
+        Find out what you could automate.
+      </h2>
+
+      <p>
+        Start with a free 15-minute audit.
+      </p>
+    </div>
+
+    <a class="button" href="https://calendly.com/lumorasolutions/audit">
+      Book my free audit
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="container">
+
+  <div>
+    Lumora Solutions · Melbourne, Victoria
+  </div>
+
+  <div>
+    © 2026 Lumora Solutions
+  </div>
+
+</footer>
+
+</body>
+</html>

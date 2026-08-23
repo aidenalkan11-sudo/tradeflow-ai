@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script>
+    (function () {
+      const isDesktop = window.innerWidth >= window.innerHeight;
+
+      if (isDesktop) {
+        window.location.replace("/");
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lumora Solutions — AI Automation</title>
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Sniglet:wght@400;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --cream: #fffaf6;
+      --cream-dark: #fff2df;
+      --orange: #f37922;
+      --orange-light: #ff8d32;
+      --charcoal: #545454;
+      --text: #292625;
+      --muted: #766d66;
+      --line: #eadccf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: calc(100% - 36px);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .brand img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: Sniglet, cursive;
+      font-size: 23px;
+      color: var(--charcoal);
+    }
+
+    .brand-name span {
+      color: var(--orange);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 68px 0 58px;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 15px 0 19px;
+      color: var(--charcoal);
+      font-family: Cause, sans-serif;
+      font-size: clamp(46px, 14vw, 70px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .main-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(243, 121, 34, 0.18);
+    }
+
+    .services {
+      padding: 58px 0;
+      background: var(--cream-dark);
+    }
+
+    .section-label {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 10px 0 14px;
+      color: var(--charcoal);
+      font-family: Cause, sans-serif;
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    .section-text {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .service {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: white;
+    }
+
+    .service-number {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .service h3 {
+      margin: 8px 0 5px;
+      color: var(--charcoal);
+      font-family: Cause, sans-serif;
+      font-size: 24px;
+    }
+
+    .service p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .process {
+      padding: 60px 0;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .step {
+      display: flex;
+      gap: 15px;
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: white;
+    }
+
+    .step-number {
+      flex: 0 0 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #fff0df;
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 0 0 5px;
+      color: var(--charcoal);
+      font-family: Cause, sans-serif;
+      font-size: 22px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .cta {
+      margin: 5px 0 55px;
+      padding: 31px 23px;
+      border-radius: 23px;
+      background: var(--charcoal);
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      color: white;
+      font-family: Cause, sans-serif;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .cta p {
+      margin: 0 0 22px;
+      color: #ddd6d0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .cta .main-button {
+      background: var(--orange);
+    }
+
+    footer {
+      padding: 25px 0 30px;
+      border-top: 1px solid var(--line);
+      color: #887e76;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="container navbar">
+
+  <a class="brand" href="/mobile.html">
+
+    <img
+      src="/lumora-icon.png"
+      alt="Lumora Solutions"
+    >
+
+    <div class="brand-name">
+      Lumora<span> Solutions</span>
+    </div>
+
+  </a>
+
+  <a
+    class="nav-cta"
+    href="https://calendly.com/lumorasolutions/audit"
+  >
+    Free Audit
+  </a>
+
+</header>
+
+<main>
+
+<section class="container hero">
+
+  <div class="eyebrow">
+    AI automation for modern businesses
+  </div>
+
+  <h1>
+    Stop doing work<br>
+    <span>your systems can do.</span>
+  </h1>
+
+  <p>
+    Lumora Solutions builds practical AI automations that help
+    businesses save time, respond faster and reduce repetitive work.
+  </p>
+
+  <a
+    class="main-button"
+    href="https://calendly.com/lumorasolutions/audit"
+  >
+    Book a free audit
+  </a>
+
+</section>
+
+
+<section class="services">
+
+  <div class="container">
+
+    <div class="section-label">
+      What we automate
+    </div>
+
+    <h2 class="section-title">
+      Less busywork.
+    </h2>
+
+    <p class="section-text">
+      We build systems around the repetitive processes taking
+      time away from your team.
+    </p>
+
+    <div class="service-list">
+
+      <div class="service">
+        <div class="service-number">01</div>
+
+        <h3>Lead capture</h3>
+
+        <p>
+          Automatically collect and organise new enquiries.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">02</div>
+
+        <h3>Follow-ups</h3>
+
+        <p>
+          Keep leads moving with timely automated follow-ups.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">03</div>
+
+        <h3>Custom automation</h3>
+
+        <p>
+          Build workflows around your exact business processes.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="process">
+
+  <div class="container">
+
+    <div class="section-label">
+      How it works
+    </div>
+
+    <h2 class="section-title">
+      Simple from start to finish.
+    </h2>
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="step-number">
+          01
+        </div>
+
+        <div>
+
+          <h3>
+            Discover
+          </h3>
+
+          <p>
+            We find the repetitive tasks and bottlenecks
+            costing your business time.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          02
+        </div>
+
+        <div>
+
+          <h3>
+            Build
+          </h3>
+
+          <p>
+            We design and build an automation around
+            your existing workflow.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          03
+        </div>
+
+        <div>
+
+          <h3>
+            Launch
+          </h3>
+
+          <p>
+            Your new system goes live and handles the
+            repetitive work automatically.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="container">
+
+  <div class="cta">
+
+    <h2>
+      See what your business could automate.
+    </h2>
+
+    <p>
+      Start with a free 15-minute audit and find your biggest
+      automation opportunities.
+    </p>
+
+    <a
+      class="main-button"
+      href="https://calendly.com/lumorasolutions/audit"
+    >
+      Book my free audit
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="container">
+
+  Lumora Solutions · Melbourne, Victoria<br>
+  © 2026 Lumora Solutions
+
+</footer>
+
+</body>
+</html>

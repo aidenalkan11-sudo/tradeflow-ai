@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <script>
+    (function () {
+      const isMobile = window.innerHeight > window.innerWidth;
+
+      if (isMobile) {
+        window.location.replace("/mobile.html");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Lumora Solutions — AI Automation</title>
 
+  <link rel="icon" type="image/png" href="/favicon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Sniglet:wght@400;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -101,8 +118,8 @@
       background: var(--orange);
       color: white;
       font-weight: 700;
-      box-shadow: 0 8px 22px rgba(243, 121, 34, .18);
-      transition: .2s;
+      box-shadow: 0 8px 22px rgba(243, 121, 34, 0.18);
+      transition: 0.2s;
     }
 
     .button:hover {
@@ -125,7 +142,7 @@
       color: var(--orange);
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: .14em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
@@ -134,8 +151,8 @@
       font-family: Cause, sans-serif;
       color: var(--charcoal);
       font-size: clamp(54px, 8vw, 88px);
-      line-height: .96;
-      letter-spacing: -.03em;
+      line-height: 0.96;
+      letter-spacing: -0.03em;
     }
 
     .hero h1 span {
@@ -390,7 +407,9 @@
 
       <div class="service-card">
         <div class="service-number">01</div>
+
         <h3>Lead capture</h3>
+
         <p>
           Automatically collect, organise and route new enquiries so
           potential customers don't get lost.
@@ -399,7 +418,9 @@
 
       <div class="service-card">
         <div class="service-number">02</div>
+
         <h3>Follow-ups</h3>
+
         <p>
           Keep leads moving with timely automated follow-ups without
           requiring your team to manually chase every enquiry.
@@ -408,7 +429,9 @@
 
       <div class="service-card">
         <div class="service-number">03</div>
+
         <h3>Custom workflows</h3>
+
         <p>
           Build custom automation around the exact processes, software
           and requirements of your business.
@@ -426,6 +449,7 @@
   <div class="cta">
 
     <div>
+
       <h2>
         Find out what your business could automate.
       </h2>
@@ -433,6 +457,7 @@
       <p>
         Start with a free 15-minute audit.
       </p>
+
     </div>
 
     <a class="button" href="https://calendly.com/lumorasolutions/audit">
